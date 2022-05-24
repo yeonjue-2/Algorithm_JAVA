@@ -1,0 +1,29 @@
+public class Main {
+    public static int notSelf(int n) {      // 샖프넘버가 아닌 수 찾기
+        int total = n;
+        while (n != 0) {
+            total += (n % 10);
+            n /= 10;
+        } return total;
+    }
+
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder();
+        boolean arr[] = new boolean[10000];  // 생성자가 있는 숫자들
+        int count = 1;
+
+        for (int i =0; i < 10000; i++) {
+            int n = notSelf(i);
+            if (n < 10000) {
+                arr[n] = true;      // 생성자가 있다
+            }
+        }
+
+        for (int i =0; i < 10000; i++) {
+            if (arr[i] != true) {       // 생성자가 없다
+                sb.append(i).append('\n');
+            }
+        }
+        System.out.println(sb);
+    }
+}
