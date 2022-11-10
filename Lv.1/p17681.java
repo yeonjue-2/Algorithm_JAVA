@@ -47,7 +47,8 @@ class Solution {
     } 
 }
 
-// 속도 개선, 필요할 때 0을 채우는 대신 16자리로 아예 만들고 필요한만큼 자르기
+// 속도 개선됨
+// 필요할 때 0을 채우는 대신 16자리로 아예 만들고 필요한만큼 자르기
 
 class Solution {
   public String[] solution(int n, int[] arr1, int[] arr2) {
