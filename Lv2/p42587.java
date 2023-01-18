@@ -29,5 +29,15 @@ class Solution {
     }
 }
 
+class Pair {
+    int location;
+    int priority;
+
+    Pair(int location, int priority) {
+        this.location = location;
+        this.priority = priority;
+    }
+}
+
 // https://school.programmers.co.kr/learn/courses/30/lessons/42587
 // 처음에 문제를 잘못 이해해서 풀었다. 
