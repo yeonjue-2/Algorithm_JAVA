@@ -26,3 +26,6 @@ public class Palindrome {
 
     }
 }
+
+
+// https://www.acmicpc.net/problem/10988
