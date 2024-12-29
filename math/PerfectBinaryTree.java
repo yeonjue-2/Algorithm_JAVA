@@ -19,7 +19,7 @@ public class PerfectBinaryTree {
         if (left < arr.length - 1) {
             inOrder(arr, left);
         }
-        System.out.print(arr[idx] + " --" + idx + " ");
+        System.out.print(arr[idx] + " ");
         if (right < arr.length - 1) {
             inOrder(arr, right);
         }
