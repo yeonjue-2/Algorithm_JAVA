@@ -61,9 +61,9 @@ public class ContinuousWord {
   해당 행렬에서 word 문자열이 인접하게 연결되어 있는지를 확인하는 프로그램을 작성하세요.
   
   아래와 같은 행렬에서 word 로 "ABCCED" 가 주어진 경우 다음과 같이 인접해 있음을 확인할 수 있다.
-  A B C E
-  S F C S
-  A D E E
+   A B C E
+   S F C S
+   A D E E
   
   인접하게 구성이되면 true 를 반환하고 그렇지 않으면 false 를 반환하시오.
   
