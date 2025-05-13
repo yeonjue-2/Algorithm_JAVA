@@ -1,3 +1,20 @@
+/*
+정렬 + 고정 + 투포인터
+1. 정렬
+중복 제거와 투포인터 활용을 위해 배열을 정렬함.
+
+2. 하나의 값 고정 (i)
+인덱스 i를 기준으로 앞에서부터 순차적으로 하나씩 고정.
+
+3. 투포인터 (left, right)
+고정된 i 다음 인덱스를 left, 끝 인덱스를 right로 놓고
+nums[i] + nums[left] + nums[right] == 0인 조합을 찾음.
+
+4. 중복 제거
+i에 대해 같은 값이면 continue.
+left, right가 가리키는 값이 중복되면 건너뜀.
+ */
+
 class ThreeSum {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
@@ -33,19 +50,28 @@ class ThreeSum {
         return result;
     }
 }
-/*
-정렬 + 고정 + 투포인터
-1. 정렬
-중복 제거와 투포인터 활용을 위해 배열을 정렬함.
 
-2. 하나의 값 고정 (i)
-인덱스 i를 기준으로 앞에서부터 순차적으로 하나씩 고정.
+// 다른 해결방안
+// 배열을 바꾸지않고, 추가 메모리를 사용(HashMap)
+// two sum을 hash 기반으로 찾기
 
-3. 투포인터 (left, right)
-고정된 i 다음 인덱스를 left, 끝 인덱스를 right로 놓고
-nums[i] + nums[left] + nums[right] == 0인 조합을 찾음.
+public List<List<Integer>> threeSum(int[] nums) {
+    Set<List<Integer>> result = new HashSet<>();
+    Arrays.sort(nums);
 
-4. 중복 제거
-i에 대해 같은 값이면 continue.
-left, right가 가리키는 값이 중복되면 건너뜀.
- */
+    for (int i = 0; i < nums.length - 2; i++) {
+        int target = -nums[i];
+        Set<Integer> seen = new HashSet<>();
+        
+        for (int j = i + 1; j < nums.length; j++) {
+            int complement = target - nums[j];
+            if (seen.contains(complement)) {
+                result.add(Arrays.asList(nums[i], nums[j], complement));
+            }
+            seen.add(nums[j]);
+        }
+    }
+
+    return new ArrayList<>(result);
+}
+
